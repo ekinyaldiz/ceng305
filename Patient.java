@@ -23,19 +23,19 @@ public class Patient extends Person
     }
     public String getName()
     {
-        return this.name;
+        return super.getName();
     }
     public void setName()
     {
-        this.name = JOptionPane.showInputDialog("Set Name: ");
+        super.setName();
     }
     public int getAge()
     {
-        return this.age;
+        return super.getAge();
     }
     public void setAge()
     {
-        this.age = Integer.parseInt(JOptionPane.showInputDialog("Set age: "));
+        super.setAge();
     }
     public int getRegistrationId()
     {
@@ -47,40 +47,51 @@ public class Patient extends Person
     }
     public String getSex()
     {
-        return this.sex;
+        return super.getSex();
     }
     public void setSex()
     {
-        this.sex = JOptionPane.showInputDialog("Set Sex: ");
+        super.setSex();
     }
     public String getAddress()
     {
-        return this.address;
+        return super.getAddress();
     }
     public void setAddress()
     {
-        this.address = JOptionPane.showInputDialog("Set Address: ");
+        super.getAddress();
     }
-    public double getSalary()
+    public double getBalance()
     {
         return this.balance;
     }
-    public void setSalary()
+    public void setBalance()
     {
         this.balance = Double.parseDouble(JOptionPane.showInputDialog("Set Address: "));
     }
     //Returns patient details
     public String toString()
     {
-        return("Name: " + name +
+        return("Name: " + super.getName() +
                "Registration ID: " + registrationId +
-               "Age: "  + age +
-               "Sex: "  + sex +
-               "Balance: " + balance);
+               "Age: "  + super.getAge() +
+               "Sex: "  + super.getSex() +
+               "Balance: " + this.balance);
     }
     public double getMoneyAmountInCurrency(String currency)
     {
-        //TODO: Actually fill it in.
-        return 1.2;
+        if (currency == "USD")
+            return this.balance/6.00;
+        if (currency == "EUR")
+            return this.balance/6.70;
+        if (currency == "GBP")
+            return this.balance/7.86;
+        return this.balance;
+    }
+    public boolean findNameMatch(String key)
+    {
+        if(super.getName().contains(key))
+            return true;
+        return false;
     }
 }

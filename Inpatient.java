@@ -9,28 +9,30 @@ import java.util.ArrayList;
 public class Inpatient extends Patient
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private int roomNo;
 
     /**
      * Constructor for objects of class Inpatient
      */
-    public Inpatient()
+    public Inpatient(int id, String name, int age, String sex, String address, double balance, int roomNo )
     {
-        super();
-        
-        // initialise instance variables
-        x = 0;
+        super(id, name, age, sex, address, balance);
+        this.roomNo = roomNo;
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Getters and setters
      */
-    public int sampleMethod(int y)
+    public int getRoomNo()
     {
-        // put your code here
-        return x + y;
+        return this.roomNo;
+    }
+    public void setRoomNo()
+    {
+        this.roomNo = Integer.parseInt(JOptionPane.showInputDialog("Set Room No: "));
+    }
+    //Prints inpatient details
+    public String toString()
+    {
+        return "0";
     }
 }

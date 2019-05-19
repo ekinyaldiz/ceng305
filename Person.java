@@ -1,15 +1,16 @@
 import javax.swing.JOptionPane;
 /**
- * Write a description of class Person here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Has attributes:
+ * name
+ * age
+ * sex
+ * address
  */
-public class Person
+public abstract class Person
 {
     // instance variables - replace the example below with your own
-    protected String name, sex, address;
-    protected int age;
+    private String name, sex, address;
+    private int age;
 
     /**
      * Constructor for objects of class Person
@@ -21,28 +22,48 @@ public class Person
         this.sex = sex;
         this.address = address;
     }
-
+    public String getName()
+    {
+        return this.name;
+    }
+    public void setName()
+    {
+        this.name = JOptionPane.showInputDialog("Set Name: ");
+    }
+    public int getAge()
+    {
+        return this.age;
+    }
+    public void setAge()
+    {
+        this.age = Integer.parseInt(JOptionPane.showInputDialog("Set age: "));
+    }
+    public String getSex()
+    {
+        return this.sex;
+    }
+    public void setSex()
+    {
+        this.sex = JOptionPane.showInputDialog("Set Sex: ");
+    }
+    public String getAddress()
+    {
+        return this.address;
+    }
+    public void setAddress()
+    {
+        this.address = JOptionPane.showInputDialog("Set Address: ");
+    }
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Shows person details.
      */
     public String toString()
     {
         //TODO: Print details of person.
-        return "x + y";
+        return ("Name: " + this.name +
+                "Age: " + this.age +
+                "Sex: " + this.sex +
+                "Address: " + this.address);
     }
-    public double getMoneyAmountInCurrency(String currency)
-    {
-        if (currency == "EUR")
-            return 1.0;
-        if (currency == "USD")
-            return 2.0;
-        if (currency == "GSD")
-            return 3.0;
-        //Because java doesn't give warnings,
-        //  it says "What do you know, anyways... I'm correct."
-        return 0.0;
-    }
+    public abstract double getMoneyAmountInCurrency(String currency) ;
 }

@@ -25,19 +25,19 @@ public class Doctor extends Person
      */
     public String getName()
     {
-        return this.name;
+        return super.getName();
     }
     public void setName()
     {
-        this.name = JOptionPane.showInputDialog("Set Name: ");
+        super.setName();
     }
     public int getAge()
     {
-        return this.age;
+        return super.getAge();
     }
     public void setAge()
     {
-        this.age = Integer.parseInt(JOptionPane.showInputDialog("Set age: "));
+        super.setAge();
     }
     public int getStaffId()
     {
@@ -49,19 +49,19 @@ public class Doctor extends Person
     }
     public String getSex()
     {
-        return this.sex;
+        return super.getSex();
     }
     public void setSex()
     {
-        this.sex = JOptionPane.showInputDialog("Set Sex: ");
+        super.setSex();
     }
     public String getAddress()
     {
-        return this.address;
+        return super.getAddress();
     }
     public void setAddress()
     {
-        this.address = JOptionPane.showInputDialog("Set Address: ");
+        super.setAddress();
     }
     public double getSalary()
     {
@@ -72,17 +72,39 @@ public class Doctor extends Person
         this.salary = Double.parseDouble(JOptionPane.showInputDialog("Set Address: "));
     }
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Shows Doctor details.
      */
     public String toString()
     {
-        return("Name: " + name +
+        return("Name: " + super.getName() +
                "Staff ID: " + staffId +
-               "Age: "  + age +
-               "Sex: "  + sex +
+               "Age: "  + super.getAge() +
+               "Sex: "  + super.getSex() +
                "Salary: " + salary);
+    }
+    public double getMoneyAmountInCurrency(String currency)
+    {
+        if(currency == "USD")
+            return (this.salary/6.0);
+        if(currency == "EUR")
+            return (this.salary/6.7);
+        if(currency == "GST")
+            return(this.salary/8.0);
+        return this.salary;
+    }
+    public void addPatient(Patient p)
+    {
+        patients.add(p);
+    }
+    public void removePatient(Patient p)
+    {
+        patients.remove(p);
+    }
+    /**
+     * Gives the list of patients of doctor.
+     */
+    public ArrayList<Patient> getPatientList()
+    {
+        return patients;
     }
 }
